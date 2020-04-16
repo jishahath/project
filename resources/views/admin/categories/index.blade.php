@@ -32,7 +32,20 @@
                 <tr>
                     <td>{{$c->id}}</td>
                     <td>{{$c->title}}</td>
-                    <td><a href="#" class="btn btn-info">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+                    <td>
+                        <a href="{{route('admin.categories.edit', $c->id) }}" class="btn btn-info">Edit</a> 
+                        <!-- <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
+                        <form action="{{route('admin.categories.destroy', $c->id) }}" method="post">
+                            @method('DELETE')
+                            <input type="hidden" name="_token" value="{{csrf_token() }}">
+                        </form> -->
+
+                        <form action="{{route('admin.categories.destroy', $c->id) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
