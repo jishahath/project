@@ -26,6 +26,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Author</th>
                 <th>Image</th>
                 <th>Description</th>
@@ -36,6 +37,7 @@
                 <tr>
                     <td>{{$n->id}}</td>
                     <td>{{$n->title}}</td>
+                    <td>{{$n->category->title}}</td>
                     <td>{{$n->author}}</td>
                     <td>{{$n->image}}</td>
                     <td>{{$n->description}}</td>
